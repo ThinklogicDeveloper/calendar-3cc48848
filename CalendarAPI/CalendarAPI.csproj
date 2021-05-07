@@ -5,5 +5,11 @@
     <UserSecretsId>75e6df1a-78d2-4049-8076-4d47a060d1c3</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 
 </Project>
