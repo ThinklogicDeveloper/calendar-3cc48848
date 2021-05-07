@@ -6,5 +6,5 @@ module.exports = {
       ENVIRONMENT: process.env.ENVIRONMENT,
     },
   },
-  transpileDependencies: [/node_modules[/\\\\]vuetify[/\\\\]/],
+  transpileDependencies: [/node_modules[/\\\\]vuetify[/\\\\]/, "vuetify"],
 };
