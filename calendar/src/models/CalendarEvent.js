@@ -2,15 +2,15 @@ class CalendarEvent {
   constructor({
     id = 0,
     title = "",
-    startDate = null,
-    endDate = null,
+    startTime = null,
+    endTime = null,
     location = "",
     description = "",
   } = {}) {
     this.id = id;
     this.title = title;
-    this.startDate = startDate;
-    this.endDate = endDate;
+    this.startTime = startTime;
+    this.endTime = endTime;
     this.location = location;
     this.description = description;
   }

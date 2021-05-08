@@ -1,7 +1,7 @@
-import DefaultRepository from "./DefaultRepository";
+import CalendarRepository from "./CalendarRepository";
 
 const repositories = {
-  DefaultRepository: DefaultRepository,
+  CalendarRepository: CalendarRepository,
 };
 
 export default {
