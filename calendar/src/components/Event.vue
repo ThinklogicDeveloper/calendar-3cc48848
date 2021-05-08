@@ -14,15 +14,15 @@
 
           <v-col cols="12" sm="6" md="4">
             <v-dialog
-              ref="dialog"
-              v-model="modal2"
-              :return-value.sync="time"
+              ref="startTimeDialog"
+              v-model="startTimeDialog"
+              :return-value.sync="calendarEvent.startTime"
               persistent
               width="290px"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
-                  v-model="time"
+                  v-model="calendarEvent.startTime"
                   label="Start Time"
                   prepend-icon="mdi-clock-time-four-outline"
                   readonly
@@ -31,15 +31,19 @@
                 ></v-text-field>
               </template>
               <v-time-picker
-                v-if="modal2"
+                v-if="startTimeDialog"
                 v-model="calendarEvent.startTime"
                 full-width
               >
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="modal2 = false">
+                <v-btn text color="primary" @click="startTimeDialog = false">
                   Cancel
                 </v-btn>
-                <v-btn text color="primary" @click="$refs.dialog.save(time)">
+                <v-btn
+                  text
+                  color="primary"
+                  @click="$refs.startTimeDialog.save(calendarEvent.startTime)"
+                >
                   OK
                 </v-btn>
               </v-time-picker>
@@ -48,16 +52,16 @@
 
           <v-col cols="12" sm="6" md="4">
             <v-dialog
-              ref="dialog"
-              v-model="modal2"
-              :return-value.sync="time"
+              ref="endTimeDialog"
+              v-model="endTimeDialog"
+              :return-value.sync="calendarEvent.endTime"
               persistent
               width="290px"
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
-                  v-model="time"
-                  label="Start Time"
+                  v-model="calendarEvent.endTime"
+                  label="End Time"
                   prepend-icon="mdi-clock-time-four-outline"
                   readonly
                   v-bind="attrs"
@@ -65,15 +69,19 @@
                 ></v-text-field>
               </template>
               <v-time-picker
-                v-if="modal2"
+                v-if="endTimeDialog"
                 v-model="calendarEvent.endTime"
                 full-width
               >
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="modal2 = false">
+                <v-btn text color="primary" @click="endTimeDialog = false">
                   Cancel
                 </v-btn>
-                <v-btn text color="primary" @click="$refs.dialog.save(time)">
+                <v-btn
+                  text
+                  color="primary"
+                  @click="$refs.endTimeDialog.save(calendarEvent.endTime)"
+                >
                   OK
                 </v-btn>
               </v-time-picker>
@@ -124,8 +132,12 @@ export default {
   data: () => ({
     calendarEvent: new CalendarEvent(),
     time: null,
+    startTime: null,
+    endTime: null,
     menu2: false,
     modal2: false,
+    startTimeDialog: false,
+    endTimeDialog: false,
   }),
   props: {
     dialog: {
