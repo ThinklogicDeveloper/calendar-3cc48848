@@ -11,3 +11,5 @@ export default axios.create({
   },
   params: {},
 });
+
+console.log(process.env.API);

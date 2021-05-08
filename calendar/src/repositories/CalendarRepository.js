@@ -1,9 +1,9 @@
 import http from "@/services/Http";
 
-const resource = "/calendar";
+const resource = "calendar";
 
 export default {
   create(args) {
-    return http.post(`/${resource}/create-event`, args);
+    return http.post(`${process.env.API}/${resource}/create-event`, args);
   },
 };

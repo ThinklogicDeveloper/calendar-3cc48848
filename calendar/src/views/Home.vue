@@ -73,15 +73,17 @@ export default {
       console.log(args);
     },
     createEvent(args) {
-      console.log(args);
-      const { response } = CalendarRepository.create(args);
+      try {
+        console.log(args);
+        const { response } = CalendarRepository.create(args);
+      } catch (e) {
+        console.log(e);
+      }
     },
     cancelEvent() {
       this.dialog = false;
     },
-    getEvents({ start, end }) {
-
-    },
+    getEvents({ start, end }) {},
     getEventColor(event) {
       return event.color;
     },
