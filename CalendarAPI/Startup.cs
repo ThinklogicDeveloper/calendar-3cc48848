@@ -33,6 +33,18 @@ namespace CalendarAPI
             services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Default")));
 
+            services.AddCors(option =>
+            {
+                option.AddPolicy("Calendar", policy =>
+                {
+                    policy.SetIsOriginAllowedToAllowWildcardSubdomains();
+                    policy.WithOrigins("http://localhost:8080");
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                    policy.AllowCredentials();
+                });
+            });
+
             services.AddScoped<ICalendarService, CalendarService>();
             services.AddScoped<ICalendarRepository, CalendarRepository>();
             services.AddControllers();
@@ -45,7 +57,7 @@ namespace CalendarAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors("Calendar");
             app.UseRouting();
 
             app.UseAuthorization();

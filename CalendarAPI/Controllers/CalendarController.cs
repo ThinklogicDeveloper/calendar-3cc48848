@@ -26,6 +26,7 @@ namespace CalendarAPI.Controllers
             return Ok("Hello world~");
         }
 
+        [HttpPost("create-event")]
         public async Task<IActionResult> CreateEvent(CalendarEvent calendarEvent) 
         {
             return Ok();
