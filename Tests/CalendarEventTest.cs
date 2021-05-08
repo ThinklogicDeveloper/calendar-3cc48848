@@ -31,10 +31,10 @@ namespace Tests
 
             CalendarEvent calendarEvent = new CalendarEvent
             {
-                Name = "Test Event",
+                Title = "Test Event",
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddHours(5),
-                Activity = "Just another test event"
+                Description = "Just another test event"
             };
 
             _context.CalendarEvents.Add(calendarEvent);
@@ -61,10 +61,10 @@ namespace Tests
             CalendarEvent calendarEvent = new CalendarEvent
             {
                 Id = 1,
-                Name = "Updated Event",
+                Title = "Updated Event",
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddHours(10),
-                Activity = "Updated Acvitiy"
+                Description = "Updated Acvitiy"
             };
 
             _context.CalendarEvents.Update(calendarEvent);

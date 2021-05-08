@@ -58,3 +58,4 @@ D:\repos\clients\thinklogic\CalendarAPI\obj\Debug\netcoreapp3.1\CalendarAPI.cspr
 D:\repos\clients\thinklogic\CalendarAPI\obj\Debug\netcoreapp3.1\CalendarAPI.dll
 D:\repos\clients\thinklogic\CalendarAPI\obj\Debug\netcoreapp3.1\CalendarAPI.pdb
 D:\repos\clients\thinklogic\CalendarAPI\obj\Debug\netcoreapp3.1\CalendarAPI.genruntimeconfig.cache
+D:\repos\clients\thinklogic\CalendarAPI\obj\Debug\netcoreapp3.1\CalendarAPI.csprojAssemblyReference.cache
