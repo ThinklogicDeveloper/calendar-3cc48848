@@ -25,7 +25,12 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary" text @click="dialog = false"> I accept </v-btn>
+        <v-btn color="primary" text @click="$emit(`createEvent`, args)">
+          Create Event
+        </v-btn>
+        <v-btn color="default" text @click="$emit(`cancelEvent`)">
+          Cancel
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -33,10 +38,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      dialog: false,
-    };
+  data: () => ({
+    // dialog: false,
+  }),
+  props: {
+    dialog: {
+      type: Boolean,
+      required: true,
+      default: () => {
+        return false;
+      },
+    },
   },
 };
 </script>

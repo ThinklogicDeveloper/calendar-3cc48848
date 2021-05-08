@@ -14,12 +14,22 @@
         @click:date="selectedDate"
       ></v-calendar>
     </v-sheet>
+    <event-dialog
+      :dialog="dialog"
+      @createEvent="createEvent"
+      @cancelEvent="cancelEvent"
+    ></event-dialog>
   </div>
 </template>
 
 <script>
+import EventDialog from "@/components/Event";
 export default {
+  components: {
+    EventDialog,
+  },
   data: () => ({
+    dialog: false,
     type: "month",
     types: ["month", "week", "day", "4day"],
     mode: "stack",
@@ -55,7 +65,12 @@ export default {
   }),
   methods: {
     selectedDate(args) {
+      this.dialog = true;
       console.log(args);
+    },
+    createEvent(args) {},
+    cancelEvent() {
+      this.dialog = false;
     },
     getEvents({ start, end }) {
       // const events = [];
