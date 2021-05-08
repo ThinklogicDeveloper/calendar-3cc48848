@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalendarAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace CalendarAPI.Repositories
 {
     public interface ICalendarRepository
     {
-        
+        Task<CalendarEvent> Create(CalendarEvent calendarEvent);
     }
 }

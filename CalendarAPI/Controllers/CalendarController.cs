@@ -1,4 +1,5 @@
-﻿using CalendarAPI.Models;
+﻿using CalendarAPI.Helpers;
+using CalendarAPI.Models;
 using CalendarAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,7 +30,12 @@ namespace CalendarAPI.Controllers
         [HttpPost("create-event")]
         public async Task<IActionResult> CreateEvent(CalendarEvent calendarEvent) 
         {
-            return Ok();
+            Response<CalendarEvent> response = await _calendarService.CreateEventAsync(calendarEvent);
+
+            if (!response.Success)
+                return StatusCode(500);
+
+            return Ok(response.Data);
         }
     }
 }

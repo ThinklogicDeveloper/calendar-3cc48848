@@ -76,6 +76,8 @@ export default {
       try {
         console.log(args);
         const { response } = CalendarRepository.create(args);
+
+        this.dialog = false;
       } catch (e) {
         console.log(e);
       }
