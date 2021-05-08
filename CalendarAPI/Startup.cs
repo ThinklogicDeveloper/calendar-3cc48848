@@ -1,4 +1,6 @@
 using CalendarAPI.Data;
+using CalendarAPI.Repositories;
+using CalendarAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,9 +30,12 @@ namespace CalendarAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+            services.AddScoped<ICalendarService, CalendarService>();
+            services.AddScoped<ICalendarRepository, CalendarRepository>();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,8 +45,6 @@ namespace CalendarAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
