@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default axios.create({
+const http = axios.create({
   baseURL: `${process.env.API}`,
   headers: {
     "Content-Type": "application/json",
@@ -12,4 +12,4 @@ export default axios.create({
   params: {},
 });
 
-console.log(process.env.API);
+export default http;
