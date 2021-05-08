@@ -52,5 +52,34 @@ namespace Tests
 
             flag.Should().BeTrue();
         }
+
+        [Fact(DisplayName = "Update Event")]
+        public async Task MyTestMethodAsync()
+        {
+            bool flag = false;
+
+            CalendarEvent calendarEvent = new CalendarEvent
+            {
+                Id = 1,
+                Name = "Updated Event",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddHours(10),
+                Activity = "Updated Acvitiy"
+            };
+
+            _context.CalendarEvents.Update(calendarEvent);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                flag = true;
+            }
+            catch (Exception e)
+            {
+                flag = false;
+            }
+
+            flag.Should().BeTrue();
+        }
     }
 }
